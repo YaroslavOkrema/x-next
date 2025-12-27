@@ -1,5 +1,7 @@
-import type { ITweet } from "@/shard/types/tweet.type";
+import type { ITweet } from "@/shard/types/tweet.type"
 import Image from 'next/image'
+import Link from "next/link"
+import {PAGES} from "@/config/pages.config";
 
 type Props = {
     tweet: ITweet
@@ -15,7 +17,7 @@ export function Tweet({tweet}: Props) {
                     width={24}
                     height={24}
                 />
-                <span className="font-semibold">@{tweet.author}</span>
+                <Link href={PAGES.PROFILE(tweet.author)} className="font-semibold">@{tweet.author}</Link>
             </div>
             <p className="text-white/90">{tweet.text}</p>
         </div>
